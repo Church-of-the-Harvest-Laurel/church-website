@@ -20,7 +20,36 @@ const highlights = [
   ["03", "Grow With Purpose", "Discover ministries, serve others, and live out your God-given calling."],
 ];
 
-const ministries = ["Men of Standard", "Women of Purpose", "Seeds of the Harvest", "Marriage Ministry", "Praise Team", "Food Through the Word"];
+const ministries = [
+  "Men of Standard",
+  "Women of Purpose",
+  "Seeds of the Harvest",
+  "Marriage Ministry",
+  "Praise Team",
+  "Food Through the Word",
+  "Hospitality",
+  "Media Team",
+  "Intercessors",
+  "Choir",
+];
+
+const sermons = [
+  {
+    title: "Did You Come Expecting?",
+    meta: "Pastor Robert Lewis · Luke 6:12-15",
+    id: "7KwEhozE_Kc",
+  },
+  {
+    title: "What Are You Asking God?",
+    meta: "Pastor Robert Lewis · Church of the Harvest",
+    id: "wu1tNQkcdNs",
+  },
+  {
+    title: "Pastor Robert Lewis Preaching",
+    meta: "Pastor Robert Lewis · Church of the Harvest",
+    id: "B9Lh694lK4s",
+  },
+];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,6 +78,7 @@ export default function Home() {
             <a className="nav-link" href="#welcome">New Here</a>
             <a className="nav-link" href="#message">Messages</a>
             <a className="nav-link" href="#ministries">Ministries</a>
+            <a className="nav-link" href="#leadership">Leadership</a>
             <a className="nav-link" href="#visit">Visit</a>
             <a className="rounded-full border border-[#E8B84B]/30 bg-[#C8922A]/10 px-5 py-2.5 font-semibold text-[#F5E6C8] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-[#C8922A] hover:text-[#0F0F08]" href="#give">Give</a>
           </nav>
@@ -62,7 +92,7 @@ export default function Home() {
           <button onClick={() => setMenuOpen(false)} aria-label="Close navigation" className="absolute right-5 top-6 grid h-11 w-11 place-items-center rounded-full border border-white/15 text-2xl">×</button>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#E8B84B]">Church of the Harvest</p>
           <div className="mt-12 flex flex-col gap-2">
-            {[['New Here','#welcome'],['Messages','#message'],['Ministries','#ministries'],['Visit','#visit'],['Give','#give']].map(([label, href]) => (
+            {[["New Here", "#welcome"], ["Messages", "#message"], ["Ministries", "#ministries"], ["Leadership", "#leadership"], ["Visit", "#visit"], ["Give", "#give"]].map(([label, href]) => (
               <a key={label} href={href} onClick={() => setMenuOpen(false)} className="mobile-link">{label}</a>
             ))}
           </div>
@@ -72,13 +102,11 @@ export default function Home() {
           <div className="grid w-full items-center gap-16 lg:grid-cols-[1.04fr_.96fr]">
             <div className="max-w-4xl">
               <div className="reveal-up inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#E8B84B]">
-                <span className="h-px w-10 bg-[#C8922A]" />
-                Laurel, Mississippi
+                <span className="h-px w-10 bg-[#C8922A]" /> Laurel, Mississippi
               </div>
 
               <h1 className="hero-title reveal-up reveal-delay-1 mt-7 text-balance text-[clamp(4rem,10vw,8.6rem)] font-semibold leading-[0.82] tracking-[-0.065em]">
-                Faith that
-                <span className="hero-script block">moves.</span>
+                Faith that <span className="hero-script block">moves.</span>
                 <span className="block">People who grow.</span>
               </h1>
 
@@ -87,12 +115,8 @@ export default function Home() {
               </p>
 
               <div className="reveal-up reveal-delay-3 mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="#visit" className="primary-cta group inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 font-semibold">
-                  Plan Your Visit <Arrow />
-                </a>
-                <a href="#message" className="secondary-cta inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 font-semibold">
-                  Watch a Message <span aria-hidden="true">▶</span>
-                </a>
+                <a href="#visit" className="primary-cta group inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 font-semibold">Plan Your Visit <Arrow /></a>
+                <a href="#message" className="secondary-cta inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 font-semibold">Watch a Message <span aria-hidden="true">▶</span></a>
               </div>
             </div>
 
@@ -150,24 +174,28 @@ export default function Home() {
       <section id="message" className="relative bg-[#0F0F08] px-5 py-24 sm:px-8 lg:px-12 lg:py-36">
         <div className="message-glow" />
         <div className="relative z-10 mx-auto max-w-[1320px]">
-          <div className="grid gap-14 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
-            <div className="message-visual group relative min-h-[560px] overflow-hidden rounded-[2.75rem] border border-white/10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_35%,rgba(200,146,42,.30),transparent_25%),linear-gradient(145deg,#2A2A18,#0F0F08_72%)]" />
-              <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(115deg,transparent_35%,rgba(255,255,255,.18)_50%,transparent_65%)] transition duration-700 group-hover:translate-x-10" />
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[18rem] font-black leading-none text-white/[0.025]">H</div>
-              <button aria-label="Play latest message" className="play-button absolute left-1/2 top-1/2 grid h-28 w-28 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-white/10 text-2xl backdrop-blur-xl">▶</button>
-              <div className="absolute inset-x-8 bottom-8 flex items-end justify-between gap-6">
-                <div><p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#E8B84B]">Latest Message</p><p className="mt-2 text-3xl font-semibold">A word for real life.</p></div>
-                <span className="hidden text-sm text-white/45 sm:block">Watch now →</span>
-              </div>
-            </div>
+          <div className="mb-14 grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+            <p className="eyebrow eyebrow-light">Messages from the house</p>
+            <h2 className="display-title text-5xl font-semibold leading-[.96] tracking-[-0.055em] sm:text-6xl lg:text-8xl">Truth for where you are. Faith for where you&apos;re going.</h2>
+          </div>
 
-            <div className="lg:pl-10">
-              <p className="eyebrow eyebrow-light">Faith for real life</p>
-              <h2 className="display-title mt-6 text-5xl font-semibold leading-[.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">Truth that meets you where you are—and moves you forward.</h2>
-              <p className="mt-7 max-w-xl text-lg leading-8 text-white/55">Biblical teaching centered on spiritual growth, purpose, and living a victorious life in Christ.</p>
-              <a href="#" className="mt-9 inline-flex items-center gap-3 font-semibold text-[#F5E6C8] transition hover:gap-5">Explore Messages <Arrow /></a>
-            </div>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {sermons.map((sermon, index) => (
+              <a key={sermon.id} href={`https://www.youtube.com/watch?v=${sermon.id}`} target="_blank" rel="noreferrer" className={`group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] ${index === 0 ? "lg:col-span-2" : ""}`}>
+                <div className={`relative overflow-hidden bg-[#2A2A18] ${index === 0 ? "aspect-[16/8.5]" : "aspect-[4/3]"}`} style={{ backgroundImage: `linear-gradient(to top,rgba(15,15,8,.5),transparent 55%),url(https://img.youtube.com/vi/${sermon.id}/maxresdefault.jpg)`, backgroundSize: "cover", backgroundPosition: "center" }}>
+                  <span className="absolute left-6 top-6 text-[10px] font-bold uppercase tracking-[0.25em] text-[#E8B84B]">Recent Message</span>
+                  <span className="absolute bottom-6 right-6 grid h-16 w-16 place-items-center rounded-full bg-[#E8B84B] text-xl text-[#0F0F08] shadow-2xl transition duration-300 group-hover:scale-110">▶</span>
+                </div>
+                <div className="p-6 lg:p-8">
+                  <h3 className="display-title text-3xl font-semibold tracking-[-0.04em]">{sermon.title}</h3>
+                  <p className="mt-2 text-sm text-white/45">{sermon.meta}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-end">
+            <a href="https://www.youtube.com/@churchoftheharvestlaurelms" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 font-semibold text-[#F5E6C8] transition hover:gap-5">View the YouTube channel <Arrow /></a>
           </div>
         </div>
       </section>
@@ -187,6 +215,31 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="leadership" className="relative overflow-hidden bg-[#1C1C10] px-5 py-24 sm:px-8 lg:px-12 lg:py-36">
+        <div className="absolute -right-32 -top-32 h-[34rem] w-[34rem] rounded-full border border-[#C8922A]/15" />
+        <div className="absolute -right-10 -top-10 h-[22rem] w-[22rem] rounded-full border border-[#E8B84B]/10" />
+        <div className="relative z-10 mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[.78fr_1.22fr] lg:items-center">
+          <div className="rounded-[2.5rem] border border-[#C8922A]/20 bg-[#C8922A]/[0.08] p-8 sm:p-10">
+            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#E8B84B]">Senior Leadership</p>
+            <div className="mt-16 border-t border-white/10 pt-8">
+              <p className="display-title text-4xl font-semibold">Pastor Robert L. Lewis</p>
+              <p className="mt-2 text-sm text-white/45">Founder & Senior Pastor</p>
+            </div>
+            <div className="mt-8 border-t border-white/10 pt-8">
+              <p className="display-title text-3xl font-semibold">Evangelist Tonya L. Lewis</p>
+              <p className="mt-2 text-sm text-white/45">First Lady</p>
+            </div>
+          </div>
+
+          <div className="lg:pl-8">
+            <p className="eyebrow eyebrow-light">Leading with purpose</p>
+            <h2 className="display-title mt-6 text-5xl font-semibold leading-[.96] tracking-[-0.055em] sm:text-6xl lg:text-8xl">A ministry built to see lives transformed.</h2>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/55">Pastor Robert L. Lewis faithfully serves God&apos;s people with wisdom, compassion, and integrity, with a passion for helping people grow in faith and walk in their God-given purpose.</p>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/55">Alongside Evangelist Tonya Wilson Lewis, he has dedicated his life to ministry, leadership, and community outreach.</p>
+          </div>
+        </div>
+      </section>
+
       <section id="visit" className="relative overflow-hidden bg-[#C8922A] px-5 py-24 text-[#0F0F08] sm:px-8 lg:px-12 lg:py-32">
         <div className="visit-sun" />
         <div className="relative z-10 mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
@@ -197,7 +250,7 @@ export default function Home() {
           <div className="lg:justify-self-end">
             <p className="max-w-md text-lg leading-8 text-black/65">342 Hoy Rd, Laurel, MS 39443</p>
             <p className="mt-4 max-w-md leading-7 text-black/55">Come as you are. We&apos;ll make sure you know where to go and what to expect when you arrive.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=342+Hoy+Rd+Laurel+MS+39443" className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#0F0F08] px-7 py-4 font-semibold text-[#F5E6C8] transition hover:-translate-y-1 hover:shadow-2xl">Get Directions <Arrow /></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=342+Hoy+Rd+Laurel+MS+39443" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#0F0F08] px-7 py-4 font-semibold text-[#F5E6C8] transition hover:-translate-y-1 hover:shadow-2xl">Get Directions <Arrow /></a>
           </div>
         </div>
       </section>
@@ -205,15 +258,26 @@ export default function Home() {
       <section id="give" className="bg-[#0F0F08] px-5 py-20 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-[1320px] flex-col gap-8 rounded-[2.5rem] border border-[#C8922A]/20 bg-[#C8922A]/[0.06] p-8 sm:p-12 lg:flex-row lg:items-center lg:justify-between">
           <div><p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#E8B84B]">Generosity</p><h2 className="display-title mt-3 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Give with purpose.</h2><p className="mt-3 text-white/50">Cash App: $seedofharvest342</p></div>
-          <a href="#" className="primary-cta inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 font-semibold">Giving Options <Arrow /></a>
+          <a href="https://cash.app/$seedofharvest342" target="_blank" rel="noreferrer" className="primary-cta inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 font-semibold">Give via Cash App <Arrow /></a>
         </div>
       </section>
 
       <footer className="bg-[#0F0F08] px-5 pb-10 pt-12 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-[1320px] border-t border-white/10 pt-10">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-            <div><p className="display-title text-3xl font-semibold">Church of the Harvest</p><p className="mt-2 text-sm text-white/40">Laurel, Mississippi</p></div>
-            <p className="max-w-md text-sm leading-6 text-white/35 sm:text-right">Moving forward with a new way of living.</p>
+          <div className="grid gap-10 md:grid-cols-[1.2fr_.8fr] md:items-end">
+            <div>
+              <p className="display-title text-4xl font-semibold">Church of the Harvest</p>
+              <p className="mt-2 text-sm text-white/40">342 Hoy Rd · Laurel, Mississippi 39443</p>
+              <p className="mt-1 text-sm text-white/40">churchoftheharvest601@gmail.com</p>
+            </div>
+            <div className="flex flex-wrap gap-5 text-sm text-white/50 md:justify-end">
+              <a className="transition hover:text-[#E8B84B]" href="https://www.facebook.com/churchoftheharvestlaurelms" target="_blank" rel="noreferrer">Facebook</a>
+              <a className="transition hover:text-[#E8B84B]" href="https://www.youtube.com/@churchoftheharvestlaurelms" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+          <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-7 text-xs uppercase tracking-[0.18em] text-white/25 sm:flex-row sm:justify-between">
+            <span>Moving forward with a new way of living.</span>
+            <span>Laurel, Mississippi</span>
           </div>
         </div>
       </footer>
