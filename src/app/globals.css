@@ -155,18 +155,8 @@ a { text-decoration: none; }
     linear-gradient(145deg, rgba(255,255,255,.02), rgba(255,255,255,0));
 }
 .stage-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(232,184,75,.14); }
-.stage-ring-one { inset: 6%; animation: rotate-slow 30s linear infinite; }
-.stage-ring-two { inset: 17%; border-style: dashed; opacity: .7; animation: rotate-slow 22s linear infinite reverse; }
-.stage-cross {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 22rem;
-  line-height: 1;
-  color: rgba(232,184,75,.085);
-  text-shadow: 0 0 80px rgba(232,184,75,.12);
-}
+.stage-ring-one { inset: 4%; animation: rotate-slow 30s linear infinite; }
+.stage-ring-two { inset: 15%; border-style: dashed; opacity: .7; animation: rotate-slow 22s linear infinite reverse; }
 .stage-word {
   position: absolute;
   right: -3rem;
@@ -178,6 +168,19 @@ a { text-decoration: none; }
   letter-spacing: .7em;
   color: rgba(255,255,255,.16);
 }
+.hero-photo-shell {
+  box-shadow: 0 40px 110px rgba(0,0,0,.48), 0 0 0 10px rgba(200,146,42,.035);
+  transform: rotate(2deg);
+  animation: hero-breathe 8s ease-in-out infinite;
+}
+.hero-photo {
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .8s ease;
+  filter: saturate(.9) contrast(1.04);
+}
+.hero-photo-shell:hover .hero-photo { transform: scale(1.1); filter: saturate(1.05) contrast(1.06); }
 .service-glass { box-shadow: 0 35px 90px rgba(0,0,0,.35); animation: float-card 7s ease-in-out infinite; }
 
 .ticker { overflow: hidden; }
@@ -221,6 +224,13 @@ a { text-decoration: none; }
 .ministry-track { gap: 2.25rem; animation: marquee 34s linear infinite; }
 .ministry-marquee:hover .ministry-track { animation-play-state: paused; }
 
+.leadership-visual {
+  box-shadow: 0 45px 110px rgba(0,0,0,.38);
+  background-repeat: no-repeat;
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s ease;
+}
+.leadership-visual:hover { transform: translateY(-8px); box-shadow: 0 58px 130px rgba(0,0,0,.46); }
+
 .visit-sun {
   position: absolute;
   width: 44rem;
@@ -246,6 +256,7 @@ a { text-decoration: none; }
 @keyframes drift { from { transform: translate3d(-2%,-2%,0) scale(1); } to { transform: translate3d(5%,4%,0) scale(1.1); } }
 @keyframes rotate-slow { to { transform: rotate(360deg); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes hero-breathe { 0%,100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(1deg) translateY(-10px); } }
 
 @media (max-width: 767px) {
   .hero-halo { right: -22rem; top: 24%; }
