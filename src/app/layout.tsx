@@ -16,10 +16,38 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+const siteUrl = "https://www.churchoftheharvest.church";
+const title = "Church of the Harvest | Laurel, Mississippi";
+const description =
+  "Church of the Harvest in Laurel, Mississippi — a church family rooted in God's Word, built in love, and committed to seeing lives transformed through Jesus Christ.";
+
 export const metadata: Metadata = {
-  title: "Church of the Harvest | Laurel, Mississippi",
-  description:
-    "Church of the Harvest in Laurel, Mississippi — a church family rooted in God's Word, built in love, and committed to seeing lives transformed through Jesus Christ.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: title,
+    template: "%s | Church of the Harvest",
+  },
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Church of the Harvest",
+    title,
+    description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
