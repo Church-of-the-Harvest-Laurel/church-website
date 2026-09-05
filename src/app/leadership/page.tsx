@@ -23,7 +23,7 @@ export default function LeadershipPage() {
           <div className="relative">
             <div className="absolute -inset-5 rounded-[3.25rem] border border-[#C8922A]/10" />
             <div className="relative min-h-[560px] overflow-hidden rounded-[2.75rem] border border-[#E8B84B]/20 bg-[#1C1C10] sm:min-h-[680px]">
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "linear-gradient(to top,rgba(15,15,8,.96) 0%,rgba(15,15,8,.08) 62%),url('/images/pastor-robert-tonya-lewis.jpg')" }} />
+              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "linear-gradient(to top,rgba(15,15,8,.96) 0%,rgba(15,15,8,.08) 62%),url('https://img.youtube.com/vi/B9Lh694lK4s/maxresdefault.jpg')" }} />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_12%,rgba(232,184,75,.20),transparent_30%)]" />
               <div className="absolute inset-x-7 bottom-7 sm:inset-x-10 sm:bottom-10">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E8B84B]">Senior Leadership</p>
