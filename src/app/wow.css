@@ -1,0 +1,87 @@
+/* Final authentic-media pass: real Church of the Harvest imagery, premium mobile hero, and official mark. */
+
+.hero-photo {
+  background-image: linear-gradient(to top, rgba(15,15,8,.92) 0%, rgba(15,15,8,.18) 58%), url('/images/congregation.jpg') !important;
+  background-position: center 44% !important;
+  filter: saturate(.92) contrast(1.06) brightness(.93);
+}
+
+header a[aria-label="Church of the Harvest home"] > span:first-child {
+  background: #fff url('/images/church-logo.jpg') center / 86% auto no-repeat;
+  border-color: rgba(232,184,75,.42);
+  box-shadow: 0 10px 30px rgba(0,0,0,.24), 0 0 0 1px rgba(200,146,42,.08);
+  overflow: hidden;
+}
+
+header a[aria-label="Church of the Harvest home"] > span:first-child svg {
+  opacity: 0;
+}
+
+#welcome {
+  position: relative;
+  overflow: hidden;
+}
+
+#welcome::before {
+  content: "";
+  position: absolute;
+  right: -5rem;
+  top: 5rem;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 999px;
+  background: linear-gradient(rgba(250,246,238,.38), rgba(250,246,238,.92)), url('/images/family-community.jpg') center / cover no-repeat;
+  opacity: .28;
+  filter: saturate(.85);
+  pointer-events: none;
+}
+
+#ministries::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  bottom: 2.5rem;
+  width: 11rem;
+  height: 8rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(to top, rgba(15,15,8,.45), transparent 60%), url('/images/community-men.jpg') center / cover no-repeat;
+  box-shadow: 0 22px 55px rgba(15,15,8,.14);
+  transform: rotate(-3deg);
+  opacity: .82;
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .hero-shell {
+    background:
+      linear-gradient(180deg, rgba(15,15,8,.72) 0%, rgba(15,15,8,.88) 54%, #0F0F08 93%),
+      url('/images/congregation.jpg') center 35% / cover no-repeat;
+  }
+
+  .hero-shell .hero-grid { opacity: .045; }
+  .hero-shell .hero-halo { opacity: .45; }
+  .hero-shell .hero-orb { opacity: .34; }
+
+  #welcome::before {
+    width: 18rem;
+    height: 18rem;
+    right: -7rem;
+    top: 8rem;
+    opacity: .16;
+  }
+
+  #ministries::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  header a[aria-label="Church of the Harvest home"] > span:first-child {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .hero-title {
+    text-shadow: 0 14px 42px rgba(0,0,0,.72);
+  }
+}
