@@ -17,6 +17,14 @@
 .wow-ministry-card:hover img,
 .wow-message-card:hover img { transform:none !important; }
 
+/* Retire the ultra-compressed worship frame from large-format use. */
+.wow-ministry-card-wide {
+  background-image:linear-gradient(to top,rgba(7,7,4,.2),transparent 60%),url('/images/congregation.jpg');
+  background-size:cover;
+  background-position:center 45%;
+}
+.wow-ministry-card-wide > img { opacity:0 !important; }
+
 /* The leadership source is intentionally smaller, so present it as a premium portrait instead of stretching it edge-to-edge. */
 .wow-leadership-media {
   display:grid;
@@ -54,6 +62,19 @@
 }
 .wow-ministry-card img { filter:contrast(1.035) saturate(1.03) !important; }
 
+/* Don't spend rendering work on sections that are far below the fold. */
+.wow-manifesto,
+.wow-story,
+.wow-ministry,
+.wow-leadership,
+.wow-messages,
+.wow-visit,
+.wow-give,
+.wow-footer {
+  content-visibility:auto;
+  contain-intrinsic-size:900px;
+}
+
 /* Mobile gets its own choreography: large, clear, fast, touch-first. */
 @media (max-width:900px) {
   .wow-nav { padding:12px 16px !important; backdrop-filter:blur(8px); }
@@ -86,7 +107,7 @@
   .wow-ministry .wow-section-head { padding:0 18px !important; margin-bottom:38px !important; }
   .wow-section-head { display:block !important; }
   .wow-section-head h2 { margin-top:12px !important; font-size:clamp(3.6rem,17vw,6rem) !important; }
-  .wow-ministry-gallery { display:flex !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:14px !important; padding:0 18px 16px !important; scrollbar-width:none; }
+  .wow-ministry-gallery { display:flex !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:14px !important; padding:0 18px 16px !important; scrollbar-width:none; overscroll-behavior-inline:contain; }
   .wow-ministry-gallery::-webkit-scrollbar { display:none; }
   .wow-ministry-card,.wow-ministry-card-large,.wow-ministry-card-wide {
     flex:0 0 84vw !important;
@@ -106,7 +127,7 @@
   .wow-leadership-copy h2 { font-size:clamp(3rem,14vw,5.2rem) !important; }
 
   .wow-messages { padding:76px 18px !important; }
-  .wow-message-grid { display:flex !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:14px !important; padding-bottom:14px; scrollbar-width:none; }
+  .wow-message-grid { display:flex !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:14px !important; padding-bottom:14px; scrollbar-width:none; overscroll-behavior-inline:contain; }
   .wow-message-grid::-webkit-scrollbar { display:none; }
   .wow-message-card,.wow-message-featured { flex:0 0 86vw !important; min-height:54svh !important; grid-row:auto !important; scroll-snap-align:center; border-radius:24px !important; }
 
