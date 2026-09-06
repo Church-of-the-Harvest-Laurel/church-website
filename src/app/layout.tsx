@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import "./wow.css";
+import "./polish.css";
 
 const inter = Inter({
   variable: "--font-inter",
