@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import "./wow.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,9 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Church of the Harvest",
   },
   description,
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: siteUrl,
@@ -45,10 +42,7 @@ export const metadata: Metadata = {
     title,
     description,
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
