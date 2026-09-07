@@ -1,0 +1,150 @@
+/* COH 3.0 finish-quality overrides: preserve visual energy without sacrificing clarity or mobile performance. */
+
+.wow-hero-image,
+.wow-story-image img,
+.wow-ministry-card img,
+.wow-leadership-photo,
+.wow-message-card img,
+.wow-visit-image img {
+  image-rendering:auto;
+  backface-visibility:hidden;
+  transform:translateZ(0);
+}
+
+/* Avoid magnifying already-compressed photography. */
+.wow-hero-image { transform:none !important; animation:none !important; }
+.wow-story-image:hover img,
+.wow-ministry-card:hover img,
+.wow-message-card:hover img { transform:none !important; }
+
+/* Retire the ultra-compressed worship frame from large-format use. */
+.wow-ministry-card-wide {
+  background-image:linear-gradient(to top,rgba(7,7,4,.2),transparent 60%),url('/images/congregation.jpg');
+  background-size:cover;
+  background-position:center 45%;
+}
+.wow-ministry-card-wide > img { opacity:0 !important; }
+
+/* The leadership source is intentionally smaller, so present it as a premium portrait instead of stretching it edge-to-edge. */
+.wow-leadership-media {
+  display:grid;
+  place-items:center;
+  padding:clamp(28px,5vw,76px);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(232,184,75,.32), transparent 34%),
+    linear-gradient(145deg,#241b0d,#0a0a06 68%);
+}
+.wow-leadership-photo {
+  position:relative !important;
+  inset:auto !important;
+  width:min(88%,720px) !important;
+  height:auto !important;
+  aspect-ratio:1/1;
+  object-fit:cover !important;
+  border-radius:34px;
+  box-shadow:0 40px 110px rgba(0,0,0,.48),0 0 0 1px rgba(232,184,75,.22);
+}
+.wow-leadership-media::after { background:linear-gradient(0deg,rgba(8,8,4,.18),transparent 45%) !important; }
+
+/* Keep photography crisp by avoiding excessive display widths. */
+.wow-story-sticky,
+.wow-ministry-gallery,
+.wow-message-grid { max-width:1360px; margin-left:auto; margin-right:auto; }
+.wow-ministry-card-large { min-height:min(70vh,760px); }
+.wow-ministry-card-wide { min-height:min(54vh,620px); }
+.wow-message-featured { min-height:min(72vh,760px); }
+
+/* Stronger legibility over photos without muddying them. */
+.wow-hero-shade {
+  background:
+    linear-gradient(90deg,rgba(9,9,5,.92) 0%,rgba(9,9,5,.72) 34%,rgba(9,9,5,.14) 72%,rgba(9,9,5,.4) 100%),
+    linear-gradient(0deg,rgba(9,9,5,.82) 0%,transparent 48%) !important;
+}
+.wow-ministry-card img { filter:contrast(1.035) saturate(1.03) !important; }
+
+/* Don't spend rendering work on sections that are far below the fold. */
+.wow-manifesto,
+.wow-story,
+.wow-ministry,
+.wow-leadership,
+.wow-messages,
+.wow-visit,
+.wow-give,
+.wow-footer {
+  content-visibility:auto;
+  contain-intrinsic-size:900px;
+}
+
+/* Mobile gets its own choreography: large, clear, fast, touch-first. */
+@media (max-width:900px) {
+  .wow-nav { padding:12px 16px !important; backdrop-filter:blur(8px); }
+  .wow-logo-wrap { width:70px !important; height:58px !important; border-radius:14px !important; }
+  .wow-logo { width:62px !important; }
+  .wow-brand-copy { display:none !important; }
+  .wow-hero-content { padding:132px 18px 112px !important; justify-content:flex-end; }
+  .wow-hero h1 { font-size:clamp(4.4rem,22vw,7rem) !important; line-height:.74 !important; letter-spacing:-.065em !important; }
+  .wow-hero h1 .wow-gold { margin-left:0 !important; white-space:normal !important; }
+  .wow-kicker { font-size:9px !important; letter-spacing:.22em !important; max-width:88%; }
+  .wow-hero-bottom { grid-template-columns:1fr !important; gap:22px !important; margin-top:28px !important; }
+  .wow-hero-bottom>p { font-size:16px !important; line-height:1.55 !important; max-width:35ch; }
+  .wow-hero-actions { display:grid !important; grid-template-columns:1fr 1fr; width:100%; }
+  .wow-button { min-height:52px !important; padding:0 16px !important; font-size:12px !important; }
+  .wow-service-pill { position:relative !important; right:auto !important; top:auto !important; width:calc(100% - 36px) !important; margin:-82px 18px 26px !important; border-radius:22px !important; }
+  .wow-scroll-cue { display:none !important; }
+
+  .wow-manifesto { min-height:68svh !important; padding:72px 18px !important; }
+  .wow-manifesto-line { font-size:clamp(3rem,14vw,5.3rem) !important; white-space:normal !important; }
+  .wow-manifesto-line:nth-child(2),.wow-manifesto-line:nth-child(3) { margin-left:0 !important; }
+
+  .wow-story { min-height:auto !important; padding:44px 0 64px !important; }
+  .wow-story-sticky { position:relative !important; min-height:auto !important; display:flex !important; flex-direction:column !important; padding:0 18px !important; gap:20px !important; }
+  .wow-story-image-one { min-height:62svh !important; order:1; }
+  .wow-story-copy { order:2; padding:18px 4px 8px !important; }
+  .wow-story-image-two { min-height:42svh !important; order:3; }
+  .wow-story-image { border-radius:24px !important; }
+
+  .wow-ministry { padding:78px 0 !important; }
+  .wow-ministry .wow-section-head { padding:0 18px !important; margin-bottom:38px !important; }
+  .wow-section-head { display:block !important; }
+  .wow-section-head h2 { margin-top:12px !important; font-size:clamp(3.6rem,17vw,6rem) !important; }
+  .wow-ministry-gallery { display:flex !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:14px !important; padding:0 18px 16px !important; scrollbar-width:none; overscroll-behavior-inline:contain; }
+  .wow-ministry-gallery::-webkit-scrollbar { display:none; }
+  .wow-ministry-card,.wow-ministry-card-large,.wow-ministry-card-wide {
+    flex:0 0 84vw !important;
+    min-height:62svh !important;
+    grid-column:auto !important;
+    scroll-snap-align:center;
+    border-radius:24px !important;
+  }
+  .wow-ministry-card h3 { font-size:clamp(2.5rem,12vw,4.2rem) !important; }
+  .wow-ministry-cta { padding:0 18px !important; justify-content:stretch !important; }
+  .wow-ministry-cta .wow-button { width:100%; }
+
+  .wow-leadership { grid-template-columns:1fr !important; min-height:auto !important; }
+  .wow-leadership-media { min-height:auto !important; padding:54px 18px 20px !important; }
+  .wow-leadership-photo { width:min(100%,540px) !important; border-radius:26px !important; }
+  .wow-leadership-copy { padding:36px 18px 72px !important; }
+  .wow-leadership-copy h2 { font-size:clamp(3rem,14vw,5.2rem) !important; }
+
+  .wow-messages { padding:76px 18px !important; }
+  .wow-message-grid { display:flex !important; overflow-x:auto !important; scroll-snap-type:x mandatory; gap:14px !important; padding-bottom:14px; scrollbar-width:none; overscroll-behavior-inline:contain; }
+  .wow-message-grid::-webkit-scrollbar { display:none; }
+  .wow-message-card,.wow-message-featured { flex:0 0 86vw !important; min-height:54svh !important; grid-row:auto !important; scroll-snap-align:center; border-radius:24px !important; }
+
+  .wow-visit { min-height:82svh !important; }
+  .wow-visit-copy { padding:74px 18px 50px !important; }
+  .wow-visit-copy h2 { font-size:clamp(4.2rem,19vw,7rem) !important; }
+  .wow-give { padding:86px 18px !important; }
+  .wow-give h2 { font-size:clamp(4rem,19vw,7rem) !important; }
+}
+
+@media (max-width:520px) {
+  .wow-hero-actions { grid-template-columns:1fr !important; }
+  .wow-service-pill { margin-top:-70px !important; }
+  .wow-ministry-card,.wow-ministry-card-large,.wow-ministry-card-wide { flex-basis:88vw !important; }
+  .wow-message-card,.wow-message-featured { flex-basis:88vw !important; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .wow-page * { scroll-behavior:auto !important; animation:none !important; transition:none !important; }
+}
