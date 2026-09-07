@@ -21,9 +21,8 @@ export default function Home() {
         <Image src="/images/congregation.jpg" alt="Church of the Harvest congregation worshipping together" fill priority sizes="100vw" className="wow-hero-image" />
         <div className="wow-hero-shade" /><div className="wow-hero-grain" />
         <header className="wow-nav review-nav">
-          <Link href="/" className="review-brand" aria-label="Church of the Harvest home">
-            <Image src="/images/church-logo.jpg" alt="Church of the Harvest" width={210} height={162} priority className="review-logo" />
-            <span>Church of the Harvest</span>
+          <Link href="/" className="review-brand review-brand-logo-only" aria-label="Church of the Harvest home">
+            <Image src="/images/church-logo.jpg" alt="Church of the Harvest" width={360} height={278} priority className="review-logo review-logo-large" />
           </Link>
           <nav className="wow-desktop-nav" aria-label="Primary navigation">
             <Link href="#new-here">New Here</Link><Link href="/messages">Messages</Link><Link href="/ministries">Ministries</Link><Link href="/leadership">Leadership</Link><Link href="/prayer">Prayer</Link><Link href="/visit">Visit</Link><Link href="#give" className="wow-nav-give">Give</Link>
