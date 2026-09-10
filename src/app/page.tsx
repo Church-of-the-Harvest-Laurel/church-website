@@ -74,8 +74,9 @@ export default function Home() {
             fill
             priority
             sizes="(max-width: 900px) 100vw, 60vw"
-            style={{ objectFit: "cover" }}
+            className={styles.heroPhoto}
           />
+          <div className={styles.heroImageWash} aria-hidden="true" />
         </div>
         <div className={styles.heroCopy}>
           <p className={styles.kicker}>Laurel, Mississippi</p>
@@ -120,29 +121,23 @@ export default function Home() {
         </div>
       </section>
 
-      <div className={styles.featurePhoto}>
-        <Image
-          src="/images/church-community-formal.jpg"
-          alt="Church of the Harvest church family"
-          width={1800}
-          height={1100}
-          sizes="100vw"
-        />
-      </div>
+      <section className={styles.featurePhoto}>
+        <Image src="/images/church-community-formal.jpg" alt="Church of the Harvest church family" width={1600} height={900} />
+      </section>
 
       <section className={styles.why}>
         <div className={styles.whyHeader}>
-          <h2>Why Church of the Harvest</h2>
-          <p>What you can expect when you become part of this church family.</p>
+          <h2>Why Church of the Harvest?</h2>
+          <p>Because faith is meant to be lived with people.</p>
         </div>
 
         <div className={styles.whyGrid}>
-          {values.map((value) => (
-            <article key={value.title} className={styles.whyCard}>
-              <Image src={value.image} alt="" width={900} height={700} sizes="(max-width: 900px) 100vw, 33vw" />
+          {values.map((item) => (
+            <article className={styles.whyCard} key={item.title}>
+              <Image src={item.image} alt="" width={900} height={675} />
               <div>
-                <h3>{value.title}</h3>
-                <p>{value.copy}</p>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
               </div>
             </article>
           ))}
@@ -151,68 +146,58 @@ export default function Home() {
 
       <section className={styles.support}>
         <div className={styles.supportImage}>
-          <Image
-            src="/images/family-community.jpg"
-            alt="People connecting at Church of the Harvest"
-            width={1400}
-            height={1200}
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
+          <Image src="/images/congregation-worship.jpg" alt="Church of the Harvest worship service" width={1100} height={1200} />
         </div>
         <div className={styles.supportCopy}>
-          <p className={styles.kicker}>Prayer & Support</p>
-          <h2>You do not have to carry it alone.</h2>
+          <p className={styles.kicker}>You do not have to carry it alone</p>
+          <h2>We are here for you.</h2>
           <p>
-            Whatever season you are walking through, we believe prayer matters and
-            community matters. Tell us how we can stand with you.
+            Whether you need prayer, encouragement, or simply someone to stand with you,
+            your church family is ready to meet you where you are.
           </p>
           <div className={styles.buttonRow}>
             <Link href="/prayer" className={styles.button}>Request Prayer</Link>
-            <Link href="/ministries" className={styles.button}>Find Community</Link>
           </div>
         </div>
       </section>
 
-      <section className={styles.connect}>
+      <section className={styles.connect} id="give">
         <div className={styles.connectGrid}>
+          <h2>Stay connected.</h2>
           <div>
-            <p className={styles.kicker}>Stay Connected</p>
-            <h2>Keep up with what is happening.</h2>
+            <p>
+              Keep up with messages, gatherings, ministries, and what God is doing through
+              Church of the Harvest.
+            </p>
+            <form className={styles.signup} onSubmit={(event) => event.preventDefault()}>
+              <input type="email" aria-label="Email address" placeholder="Your email address" />
+              <button type="submit">Join</button>
+            </form>
           </div>
-          <p>
-            Church gets stronger when people stay connected beyond Sunday. Follow the
-            life of the church, hear about upcoming gatherings, and find your next step.
-          </p>
-        </div>
-        <div className={styles.signup}>
-          <input aria-label="Email address" type="email" placeholder="Email address" />
-          <button type="button">Join Updates →</button>
         </div>
       </section>
 
-      <footer className={styles.footer} id="give">
+      <footer className={styles.footer}>
         <div className={styles.footerTop}>
-          <div className={styles.footerBrand}>Church of<br />the Harvest</div>
+          <div className={styles.footerBrand}>Church of the<br />Harvest</div>
           <div>
-            <h4>About</h4>
-            <Link href="/leadership">Leadership</Link>
-            <Link href="/visit">Plan a Visit</Link>
-            <Link href="/prayer">Prayer</Link>
-          </div>
-          <div>
-            <h4>Connect</h4>
+            <h4>Explore</h4>
+            <Link href="/leadership">About Us</Link>
             <Link href="/ministries">Ministries</Link>
             <Link href="/messages">Messages</Link>
-            <Link href="/visit">Location</Link>
           </div>
           <div>
-            <h4>Take a Step</h4>
-            <Link href="/visit">Come Sunday</Link>
-            <Link href="/ministries">Get Involved</Link>
-            <Link href="#give">Give</Link>
+            <h4>Next Steps</h4>
+            <Link href="/visit">Plan a Visit</Link>
+            <Link href="/prayer">Prayer</Link>
+            <a href="https://cash.app/$seedofharvest342">Give</a>
+          </div>
+          <div>
+            <h4>Location</h4>
+            <p>342 Hoy Rd<br />Laurel, MS 39443</p>
           </div>
         </div>
-        <div className={styles.footerBottom}>© 2026 Church of the Harvest</div>
+        <div className={styles.footerBottom}>© Church of the Harvest. All rights reserved.</div>
       </footer>
     </main>
   );
